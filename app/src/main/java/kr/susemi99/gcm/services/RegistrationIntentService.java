@@ -35,9 +35,16 @@ public class RegistrationIntentService extends IntentService
 
       Intent registrationCompleteIntent = new Intent(getString(R.string.action_registration_complete));
       LocalBroadcastManager.getInstance(this).sendBroadcast(registrationCompleteIntent);
+
+      sendToServer(token);
     } catch (IOException e)
     {
       e.printStackTrace();
     }
+  }
+
+  private void sendToServer(String token)
+  {
+    Log.i("RegistrationIntentService | sendToServer", "send to server");
   }
 }
