@@ -15,6 +15,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 import kr.susemi99.gcm.managers.PreferenceManager;
+import kr.susemi99.gcm.services.RegistrationIntentService;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity
     setSupportActionBar(toolbar);
 
     textHello = (TextView) findViewById(R.id.text_hello);
+
+    if (checkPlayServices())
+      startService(new Intent(this, RegistrationIntentService.class));
   }
 
   @Override
